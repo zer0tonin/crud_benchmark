@@ -20,7 +20,18 @@ func init() {
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello!")
+		switch r.Method {
+		case http.MethodGet:
+			if r.URL.Path == "/" {
+				List(w, r)
+			} else {
+				Get(w, r)
+			}
+		case http.MethodPost:
+			Create(w, r)
+		default:
+			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		}
 	})
 	fmt.Println("Listening on " + viper.GetString("host"))
 	http.ListenAndServe(viper.GetString("host"), nil)

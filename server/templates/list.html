@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>CRUD Benchmark - List</title>
+    </head>
+    <body>
+        <main>
+            <ul>
+            {{ range .posts }}
+                <li>
+                    <a href="/{{ .ID }}">{{ .Title }}</a>
+                </li>
+            {{ end }}
+            </ul>
+        </main>
+    </body>
+</html>
