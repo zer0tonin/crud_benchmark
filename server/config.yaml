@@ -1,0 +1,4 @@
+host: :8080
+mysql:
+  user: server
+  password: mysql_password
