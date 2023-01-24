@@ -1,4 +1,3 @@
 host: :8080
-mysql:
-  user: server
-  password: mysql_password
+mongo:
+  uri: "mongodb://root:my_fancy_password@mongo:27017"

@@ -3,14 +3,14 @@ services:
   server:
     build: .
     depends_on:
-      - mysql
+      - mongo
     ports:
       - 8080:8080
 
   dev:
     image: cosmtrek/air:v1.40.4
     depends_on:
-      - mysql
+      - mongo
     working_dir: "/server"
     environment:
       air_wd: "/server"
@@ -20,5 +20,8 @@ services:
       - 8080:8080
     command: air -c .air.toml
 
-  mysql:
-    image: mysql:latest
+  mongo:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: my_fancy_password

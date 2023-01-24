@@ -7,7 +7,7 @@
             <ul>
             {{ range .posts }}
                 <li>
-                    <a href="/{{ .ID }}">{{ .Title }}</a>
+                    <a href="/{{ .StringID }}">{{ .Title }}</a>
                 </li>
             {{ end }}
             </ul>
